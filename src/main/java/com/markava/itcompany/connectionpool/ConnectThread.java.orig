@@ -24,11 +24,15 @@ public class ConnectThread extends Thread {
 	public static void main(String[] args) {
 
 		LazyConnectionPool conPool = LazyConnectionPool.getInstance();
-
+<<<<<<< HEAD
+		for (int i = 0; i < 17; i++) {
+			ConnectThread thread = new ConnectThread(conPool);
+			logger.log(Level.INFO, "Trying to create thread with number "+i);
+=======
 		for (int i = 0; i < 10; i++) {
 			ConnectThread thread = new ConnectThread(conPool);
 			logger.log(Level.INFO, "Thread number "+i+ " is created ");
-
+>>>>>>> master
 			thread.start();
 		}
 	}
