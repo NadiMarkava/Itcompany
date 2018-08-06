@@ -17,15 +17,16 @@ public class ConnectThread extends Thread {
 	}
 
 	public void run() {
-		logger.log(Level.INFO, "ConThread is created");
+		logger.log(Level.INFO, "ConThread is created from ConnectionPool");
 		conPool.getConnection();
 	}
 
 	public static void main(String[] args) {
 
 		LazyConnectionPool conPool = LazyConnectionPool.getInstance();
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 17; i++) {
 			ConnectThread thread = new ConnectThread(conPool);
+			logger.log(Level.INFO, "Trying to create thread with number "+i);
 			thread.start();
 		}
 	}
